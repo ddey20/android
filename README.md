@@ -1,1 +1,2 @@
-# java_development NEAGU ANDREI COSMIN
+# Android Studio Quiz App
+# Andrei-Cosmin NEAGU - Student - Economic Informatics - Final Year
