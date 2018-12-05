@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ratingapp.ddey.com.dam_project.R;
@@ -37,17 +36,14 @@ public class InactiveQuizzesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inactive_quizzes);
         setToolbar();
         init();
-        //incomingIntent();
     }
 
     public void init() {
         lvQuizzes = findViewById(R.id.lv_inactive_quizzes);
 
         mDb = new DbHelper(this);
-        inactiveQuizList = mDb.loadQuizzes(false);
+        inactiveQuizList = mDb.getQuizzes(false);
 
-        //Hardcoded pentru exemplu
-        //inactiveQuizList.add(new Quiz("Quiz title example", "Random test type", "Public"));
         mAdapter = new InactiveQuizAdapter(getApplicationContext(), R.layout.lv_inactive_quizz_row, inactiveQuizList, this);
         lvQuizzes.setAdapter(mAdapter);
 
@@ -60,29 +56,8 @@ public class InactiveQuizzesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
     }
 
-//    public void incomingIntent() {
-//        Intent intent = getIntent();
-//        if (intent != null) {
-//            Quiz receivedQuiz = intent.getParcelableExtra(Constants.ADD_QUIZZ_KEY);
-//
-//            if (receivedQuiz != null) {
-//                inactiveQuizList.add(receivedQuiz);
-//                mAdapter.notifyDataSetChanged();
-//            }
-//
-//            receivedQuiz = intent.getParcelableExtra(Constants.DEACTIVATE_QUIZZ_KEY);
-//            if (receivedQuiz != null) {
-//                inactiveQuizList.add(receivedQuiz);
-//                mAdapter.notifyDataSetChanged();
-//            }
-//        }
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -90,13 +65,12 @@ public class InactiveQuizzesActivity extends AppCompatActivity {
 
 
         if (requestCode == Constants.REQUEST_CODE_ACTIVATE_QUIZZ && data != null) {
-            //result OK din activatequizactivity
+
             if (resultCode == RESULT_OK) {
                 Quiz recvQuiz = data.getParcelableExtra(Constants.ACTIVATE_QUIZZ_KEY);
                 mDb.updateQuizActivity(recvQuiz, true);
-                inactiveQuizList = mDb.loadQuizzes(false);
+                inactiveQuizList = mDb.getQuizzes(false);
                 mAdapter.notifyDataSetChanged();
-               // inactiveQuizList.remove(recvQuiz);
 
                 if (recvQuiz != null) {
                     Intent intent = new Intent(getApplicationContext(), ActiveQuizzesActivity.class);
@@ -112,10 +86,11 @@ public class InactiveQuizzesActivity extends AppCompatActivity {
 
         if (requestCode == Constants.REQUEST_CODE_MODIFY_QUIZZ && data != null) {
             if (resultCode == RESULT_OK) {
-                int position = data.getIntExtra("index", -1);
+                int position = data.getIntExtra(Constants.LV_INDEX_MODIFY_QUIZ_KEY, -1);
                 Quiz currentQuiz = data.getParcelableExtra(Constants.MODIFY_QUIZZ_KEY);
                 inactiveQuizList.set(position, currentQuiz);
-                mAdapter.notifyDataSetChanged();
+                //mAdapter.notifyDataSetChanged();
+                mAdapter.refreshList(mDb.getQuizzes(false));
             }
             if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(getApplicationContext(), R.string.inactive_nochanges, Toast.LENGTH_SHORT).show();

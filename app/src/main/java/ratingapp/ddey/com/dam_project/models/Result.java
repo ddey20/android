@@ -1,13 +1,21 @@
 package ratingapp.ddey.com.dam_project.models;
 
 public class Result {
-    private int idResult;
+    private long idResult;
     private String studentName;
     private String quizzName;
     private int score;
     private String dateTime;
 
     public Result(String studentName, String quizzName, int score, String dateTime) {
+        this.studentName = studentName;
+        this.quizzName = quizzName;
+        this.score = score;
+        this.dateTime = dateTime;
+    }
+
+    public Result(long idResult, String studentName, String quizzName, int score, String dateTime) {
+        this.idResult = idResult;
         this.studentName = studentName;
         this.quizzName = quizzName;
         this.score = score;
@@ -22,11 +30,11 @@ public class Result {
         this.quizzName = quizzName;
     }
 
-    public int getIdResult() {
+    public long getIdResult() {
         return idResult;
     }
 
-    public void setIdResult(int idResult) {
+    public void setIdResult(long idResult) {
         this.idResult = idResult;
     }
 

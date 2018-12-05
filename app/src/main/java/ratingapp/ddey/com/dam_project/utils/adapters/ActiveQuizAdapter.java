@@ -160,7 +160,7 @@ public class ActiveQuizAdapter extends ArrayAdapter<Quiz> {
                 Quiz currentQuiz = mList.get(index);
                 Intent intent = new Intent(mContext, QuizAccessTypeActivity.class);
                 intent.putExtra(Constants.CHANGE_ACCESSTYPE_QUIZZ_KEY, currentQuiz);
-                intent.putExtra("index", position);
+                intent.putExtra(Constants.LV_INDEX_KEY, position);
                 mActivity.startActivityForResult(intent, Constants.REQUEST_CODE_ACCESSTYPE_QUIZZ);
             }
         });

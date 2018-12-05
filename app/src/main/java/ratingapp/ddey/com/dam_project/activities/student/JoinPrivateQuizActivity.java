@@ -41,7 +41,7 @@ public class JoinPrivateQuizActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), QuizInformationActivity.class);
                 if (!tieAccessCode.getText().toString().trim().isEmpty() && tieAccessCode.getText() != null)
                     code = Long.valueOf(tieAccessCode.getText().toString());
-                    Quiz found = mDb.loadPrivateQuiz(code);
+                    Quiz found = mDb.getPrivateQuiz(code);
 
                     if (found != null && code != -1) {
                         intent.putExtra(Constants.PRIVATE_QUIZ_KEY, found);

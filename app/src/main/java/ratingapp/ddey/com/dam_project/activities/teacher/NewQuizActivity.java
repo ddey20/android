@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ratingapp.ddey.com.dam_project.R;
+import ratingapp.ddey.com.dam_project.models.Answer;
 import ratingapp.ddey.com.dam_project.models.Question;
 import ratingapp.ddey.com.dam_project.models.Quiz;
 import ratingapp.ddey.com.dam_project.utils.Constants;
@@ -40,10 +42,14 @@ public class NewQuizActivity extends AppCompatActivity {
     private List<Question> questionList;
     private QuestionAdapter mAdapter;
 
-    private int semaforNewOrModify;
+    private int semaforNewOrModify; // face cam acelasi lucru ca isNewQuiz
     private int index;
+    private long currentQuizId; // ca sa salvez in noul obiect idul celui vechi, sa pot face update pe db
+    private Quiz currentQuiz; // pt adaugare in bd
+    private boolean isNewQuiz = true;
 
     private DbHelper mDb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +79,7 @@ public class NewQuizActivity extends AppCompatActivity {
 
         questionList = new ArrayList<>();
 
-        mAdapter = new QuestionAdapter(getApplicationContext(), R.layout.lv_questions_row, questionList);
+        mAdapter = new QuestionAdapter(getApplicationContext(), R.layout.lv_questions_row, questionList, this);
         lvQuestions.setAdapter(mAdapter);
 
         btnAdd.setOnClickListener(addEvent());
@@ -84,23 +90,44 @@ public class NewQuizActivity extends AppCompatActivity {
 
     public void incomingIntent() {
         Intent intent = getIntent();
-
         if (intent != null) {
-            Quiz modifyQuiz = intent.getParcelableExtra(Constants.MODIFY_QUIZZ_KEY);
-            index = intent.getIntExtra("index", -1);
+            if (intent.hasExtra(Constants.MODIFY_QUIZZ_KEY)) {
+                Quiz modifyQuiz = intent.getParcelableExtra(Constants.MODIFY_QUIZZ_KEY);
+                currentQuiz = modifyQuiz;
+                index = intent.getIntExtra(Constants.LV_INDEX_MODIFY_QUIZ_KEY, -1);
 
-            if (modifyQuiz != null) {
-                semaforNewOrModify = 1;
-                if (modifyQuiz.getTitle() != null) {
-                    tieTitle.setText(modifyQuiz.getTitle());
+                if (modifyQuiz != null) {
+                    isNewQuiz = false;
+                    currentQuizId = modifyQuiz.getIdQuizz();
+                    if (modifyQuiz.getTitle() != null) {
+                        tieTitle.setText(modifyQuiz.getTitle());
+                    }
+                    if (modifyQuiz.getDescription() != null) {
+                        if (!modifyQuiz.getDescription().equals("No description"))
+                            tieDescription.setText(modifyQuiz.getDescription());
+                    }
+                    if (modifyQuiz.getVisibility() != null) {
+                        setSpinnerChoice(modifyQuiz.getVisibility(), spnVisibility);
+                    }
+                    if (modifyQuiz.getCategory() != null) {
+                        setSpinnerChoice(modifyQuiz.getCategory(), spnCategory);
+                    }
+                    if (modifyQuiz.getQuestionsList() != null) {
+                        questionList = modifyQuiz.getQuestionsList();
+                        mAdapter.refreshList(questionList);
+                    }
                 }
-                if (modifyQuiz.getDescription() != null) {
-                    tieDescription.setText(modifyQuiz.getDescription());
-                }
-                if (modifyQuiz.getQuestionsList() != null) {
-                    questionList = modifyQuiz.getQuestionsList();
-                    mAdapter.notifyDataSetChanged();
-                }
+            }
+        }
+    }
+
+    public void setSpinnerChoice(String selected, Spinner spn) {
+        Adapter spnAdapter = spn.getAdapter();
+
+        for (int i = 0; i < spnAdapter.getCount(); i++) {
+            if (spnAdapter.getItem(i).equals(selected)) {
+                spn.setSelection(i);
+                break;
             }
         }
     }
@@ -132,9 +159,9 @@ public class NewQuizActivity extends AppCompatActivity {
                         accessCode = (int) (Math.random() * 10000);
                     }
 
-                    Quiz newQuiz = new Quiz(title, description, visibility, accessCode, questionList, category);
+                    Quiz newQuiz = new Quiz(currentQuizId, title, description, visibility, accessCode, questionList, category, false); // ramane false pt ca este inactive
 
-                    if (semaforNewOrModify == 0) {
+                    if (isNewQuiz) {
                         Intent returnIntent = getIntent();
                         setResult(RESULT_OK, returnIntent);
 
@@ -144,11 +171,17 @@ public class NewQuizActivity extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(), R.string.newquizz_created, Toast.LENGTH_SHORT).show();
                         finish();
-                    } else if (semaforNewOrModify == 1) {
+                    } else if (!isNewQuiz) {
                         Intent returnIntent = getIntent();
                         returnIntent.putExtra(Constants.MODIFY_QUIZZ_KEY, newQuiz);
-                        returnIntent.putExtra("index", index);
+                        returnIntent.putExtra(Constants.LV_INDEX_MODIFY_QUIZ_KEY, index);
                         setResult(RESULT_OK, returnIntent);
+                        mDb.updateQuiz(newQuiz);
+                        for (Question q : newQuiz.getQuestionsList()) {
+                            mDb.updateQuestion(q);
+                            for (Answer a : q.getAnswersList())
+                                mDb.updateAnswer(a);
+                        }
 
                         Toast.makeText(getApplicationContext(), R.string.newquizz_modified, Toast.LENGTH_SHORT).show();
                         finish();
@@ -166,21 +199,44 @@ public class NewQuizActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == Constants.REQUEST_CODE_ADD_QUESTION) {
 
-            if (resultCode == RESULT_OK && data != null) {
+        if (resultCode == RESULT_OK && data != null) {
+            if (requestCode == Constants.REQUEST_CODE_ADD_QUESTION) {
                 Question receivedQuestion = data.getParcelableExtra(Constants.ADD_QUESTION_KEY);
 
                 if (receivedQuestion != null) {
                     Toast.makeText(getApplicationContext(), R.string.newquizz_add_success, Toast.LENGTH_SHORT).show();
-                    questionList.add(receivedQuestion);
-                    mAdapter.notifyDataSetChanged();
-                }
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(getApplicationContext(), R.string.newquizz_add_failed,
-                        Toast.LENGTH_LONG).show();
-            }
 
+                    // in cazul in care doar adaug o intrebare + raspunsuri, trebuie sa le inserez separat pt a le atribui idul generat de SQLite. dupa care dau refresh
+
+                    // daca este quiz nou creat
+                    if (isNewQuiz) {
+                        questionList.add(receivedQuestion);
+                        mAdapter.notifyDataSetChanged();
+                    } else {  // daca este question nou in momentul in care modific un quiz deja existent
+                        mDb.insertQuestion(receivedQuestion, currentQuiz);
+                        for (Answer answer : receivedQuestion.getAnswersList())
+                            mDb.insertAnswer(answer, receivedQuestion);
+
+                        questionList.add(receivedQuestion);
+                        mAdapter.refreshList(questionList);
+                    }
+                }
+            } else if (requestCode == Constants.REQUEST_CODE_MODIFY_QUESTION) {
+                Question recvQuestion = data.getParcelableExtra(Constants.MODIFY_QUESTION_KEY);
+                int index = data.getIntExtra(Constants.LV_INDEX_MODIFY_QUESTION_KEY, -1);
+
+                if (recvQuestion != null) {
+                    questionList.set(index, recvQuestion);
+                    mDb.updateQuestion(recvQuestion);
+
+                    for (Answer answer : recvQuestion.getAnswersList()) {
+                        mDb.updateAnswer(answer);
+                    }
+
+                    mAdapter.refreshList(questionList);
+                }
+            }
         }
     }
 
@@ -201,8 +257,9 @@ public class NewQuizActivity extends AppCompatActivity {
         return true;
     }
 
+
     /**
-     *  Metode pentru back button sus pe toolbar.
+     * Metode pentru back button sus pe toolbar.
      */
     public void setToolbar() {
         toolbar = findViewById(R.id.newquizz_toolbar);

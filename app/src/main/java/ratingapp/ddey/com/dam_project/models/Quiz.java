@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import java.util.List;
 
 public class Quiz implements Parcelable {
-    private int idQuizz;
+    private long idQuizz;
     private String title;
     private String description;
     private String visibility;
@@ -15,10 +15,46 @@ public class Quiz implements Parcelable {
     private String category;
     private boolean isActive = false;
 
-    public Quiz() {
 
+    protected Quiz(Parcel in) {
+        idQuizz = in.readLong();
+        title = in.readString();
+        description = in.readString();
+        visibility = in.readString();
+        accessCode = in.readLong();
+        questionsList = in.createTypedArrayList(Question.CREATOR);
+        category = in.readString();
+        isActive = in.readByte() != 0;
     }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(idQuizz);
+        dest.writeString(title);
+        dest.writeString(description);
+        dest.writeString(visibility);
+        dest.writeLong(accessCode);
+        dest.writeTypedList(questionsList);
+        dest.writeString(category);
+        dest.writeByte((byte) (isActive ? 1 : 0));
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Quiz> CREATOR = new Creator<Quiz>() {
+        @Override
+        public Quiz createFromParcel(Parcel in) {
+            return new Quiz(in);
+        }
+
+        @Override
+        public Quiz[] newArray(int size) {
+            return new Quiz[size];
+        }
+    };
 
     public boolean isActive() {
         return isActive;
@@ -28,7 +64,7 @@ public class Quiz implements Parcelable {
         isActive = active;
     }
 
-    public Quiz(int idQuizz, String title, String description, String visibility, long accessCode, List<Question> questionsList, String category, boolean isActive) {
+    public Quiz(long idQuizz, String title, String description, String visibility, long accessCode, List<Question> questionsList, String category, boolean isActive) {
         this.idQuizz = idQuizz;
         this.title = title;
         this.description = description;
@@ -91,33 +127,11 @@ public class Quiz implements Parcelable {
         this.visibility = visibility;
     }
 
-    protected Quiz(Parcel in) {
-        idQuizz = in.readInt();
-        title = in.readString();
-        description = in.readString();
-        visibility = in.readString();
-        accessCode = in.readLong();
-        questionsList = in.createTypedArrayList(Question.CREATOR);
-        category = in.readString();
-    }
-
-    public static final Creator<Quiz> CREATOR = new Creator<Quiz>() {
-        @Override
-        public Quiz createFromParcel(Parcel in) {
-            return new Quiz(in);
-        }
-
-        @Override
-        public Quiz[] newArray(int size) {
-            return new Quiz[size];
-        }
-    };
-
-    public int getIdQuizz() {
+    public long getIdQuizz() {
         return idQuizz;
     }
 
-    public void setIdQuizz(int idQuizz) {
+    public void setIdQuizz(long idQuizz) {
         this.idQuizz = idQuizz;
     }
 
@@ -169,19 +183,4 @@ public class Quiz implements Parcelable {
         this.category = category;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(idQuizz);
-        dest.writeString(title);
-        dest.writeString(description);
-        dest.writeString(visibility);
-        dest.writeLong(accessCode);
-        dest.writeTypedList(questionsList);
-        dest.writeString(category);
-    }
 }

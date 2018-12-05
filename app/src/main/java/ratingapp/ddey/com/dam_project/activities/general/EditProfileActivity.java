@@ -1,7 +1,10 @@
 package ratingapp.ddey.com.dam_project.activities.general;
 
+import android.content.DialogInterface;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -31,6 +34,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private RadioButton profile_radioButtonM;
     private RadioButton profile_radioButtonF;
     private Button buttonSave;
+    private Button btnDeleteUser;
     private Toolbar toolbar;
 
     private String selectedGender = null;
@@ -70,6 +74,44 @@ public class EditProfileActivity extends AppCompatActivity {
 
         buttonSave =  findViewById(R.id.profile_buttonSave);
         buttonSave.setOnClickListener(saveEvent());
+
+        btnDeleteUser = findViewById(R.id.edit_profile_btn_delete);
+        btnDeleteUser.setOnClickListener(deleteUserAndLogoutEvent());
+    }
+
+    @NonNull
+    private View.OnClickListener deleteUserAndLogoutEvent() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(EditProfileActivity.this);
+
+                builder.setTitle(R.string.alert_delete_title)
+                        .setMessage(R.string.alert_message)
+                        .setPositiveButton(R.string.alert_ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String id = mDb.getId(mSession);
+                                if (id != null) {
+                                    mDb.deleteUser(Long.valueOf(id));
+                                    mSession.logoutUser();
+                                    Toast.makeText(EditProfileActivity.this, getString(R.string.user_success_delete_editprofile), Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(EditProfileActivity.this, getString(R.string.error_delete_editprofile), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        })
+                        .setNegativeButton(R.string.alert_cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(EditProfileActivity.this, getString(R.string.alert_canceled), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                builder.create().show();
+            }
+        };
     }
 
     public View.OnClickListener saveEvent() {

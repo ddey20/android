@@ -71,6 +71,7 @@ public class InactiveQuizAdapter extends ArrayAdapter<Quiz> {
             }
         }
 
+        mDb = new DbHelper(mActivity);
         ImageButton deleteButton = view.findViewById(R.id.lv_inactivequizz_imgbutton_delete);
         deleteButton.setTag(position);
 
@@ -102,24 +103,32 @@ public class InactiveQuizAdapter extends ArrayAdapter<Quiz> {
             }
         });
 
-//        ImageButton settingsButton = view.findViewById(R.id.lv_inactivequizz_imgbutton_settings);
-//        settingsButton.setTag(position);
-//
-//        settingsButton.setOnClickListener(
-//                new ImageButton.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        int index = (int) v.getTag();
-//                        Quiz currentQuiz = mList.get(index);
-//                        Intent intent = new Intent(mContext, NewQuizActivity.class);
-//                        intent.putExtra(Constants.MODIFY_QUIZZ_KEY, currentQuiz);
-//                        intent.putExtra("index", index);
-//                        mActivity.startActivityForResult(intent, Constants.REQUEST_CODE_MODIFY_QUIZZ);
-//                    }
-//                }
-//        );
+        ImageButton settingsButton = view.findViewById(R.id.lv_inactivequizz_imgbutton_settings);
+        settingsButton.setTag(position);
+
+        settingsButton.setOnClickListener(
+                new ImageButton.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int index = (int) v.getTag();
+                        Quiz currentQuiz = mList.get(index);
+                        Intent intent = new Intent(mActivity, NewQuizActivity.class);
+                        intent.putExtra(Constants.MODIFY_QUIZZ_KEY, currentQuiz);
+                        intent.putExtra(Constants.LV_INDEX_MODIFY_QUIZ_KEY, index);
+                        mActivity.startActivityForResult(intent, Constants.REQUEST_CODE_MODIFY_QUIZZ);
+                    }
+                }
+        );
 
         return view;
+    }
+
+
+    public void refreshList(List<Quiz> list) {
+        mList.clear();
+        mList.addAll(list);
+        notifyDataSetChanged();
+
     }
 
 

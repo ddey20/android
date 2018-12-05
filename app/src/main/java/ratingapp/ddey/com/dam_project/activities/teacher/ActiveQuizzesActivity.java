@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -16,11 +15,9 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ratingapp.ddey.com.dam_project.R;
-import ratingapp.ddey.com.dam_project.models.Question;
 import ratingapp.ddey.com.dam_project.models.Quiz;
 import ratingapp.ddey.com.dam_project.network.HttpManager;
 import ratingapp.ddey.com.dam_project.network.QuizParser;
@@ -68,7 +65,7 @@ public class ActiveQuizzesActivity extends AppCompatActivity {
     public void init() {
         lvActiveQuizzes = findViewById(R.id.lv_activequizz);
         mDb = new DbHelper(this);
-        activeQuizList = mDb.loadQuizzes(true);
+        activeQuizList = mDb.getQuizzes(true);
         mAdapter = new ActiveQuizAdapter(getApplicationContext(), R.layout.lv_active_quizz_row, activeQuizList, this);
         lvActiveQuizzes.setAdapter(mAdapter);
         btnImport = findViewById(R.id.active_btn_import_from_json_api);
@@ -85,7 +82,7 @@ public class ActiveQuizzesActivity extends AppCompatActivity {
                     }
                     Toast.makeText(getApplicationContext(), String.valueOf(fromJsonList.size()) + " " + getString(R.string.import_event_activequizzes), Toast.LENGTH_SHORT).show();
                 }
-                mAdapter.refreshList(mDb.loadQuizzes(true));
+                mAdapter.refreshList(mDb.getQuizzes(true));
             }
         };
     }
@@ -111,7 +108,7 @@ public class ActiveQuizzesActivity extends AppCompatActivity {
                 mDb.updateCategory(currentQuiz, currentQuiz.getCategory());
                 mDb.updateCode(currentQuiz, currentQuiz.getAccessCode());
                 activeQuizList.set(position, currentQuiz);
-                mAdapter.refreshList(mDb.loadQuizzes(true));
+                mAdapter.refreshList(mDb.getQuizzes(true));
             }
             if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(getApplicationContext(), R.string.activequizzes_nochangesmade, Toast.LENGTH_SHORT).show();

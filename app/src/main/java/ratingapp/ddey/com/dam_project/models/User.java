@@ -3,6 +3,7 @@ package ratingapp.ddey.com.dam_project.models;
 import java.util.Date;
 
 public class User {
+    private long idUser;
     private String email, password, name;
     private Date date;
     private String gender;
@@ -22,6 +23,14 @@ public class User {
     public User(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(long idUser) {
+        this.idUser = idUser;
     }
 
     public String getEmail() {

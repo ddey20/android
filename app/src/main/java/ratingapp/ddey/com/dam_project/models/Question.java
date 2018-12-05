@@ -6,12 +6,12 @@ import android.os.Parcelable;
 import java.util.List;
 
 public class Question implements Parcelable {
-    private int idQuestion;
+    private long idQuestion;
     private String questionText;
     private int answerTime;
     private List<Answer> answersList;
 
-    public Question(int idQuestion, String questionText, int answerTime, List<Answer> answersList) {
+    public Question(long idQuestion, String questionText, int answerTime, List<Answer> answersList) {
         this.idQuestion = idQuestion;
         this.questionText = questionText;
         this.answerTime = answerTime;
@@ -26,7 +26,7 @@ public class Question implements Parcelable {
 
 
     protected Question(Parcel in) {
-        idQuestion = in.readInt();
+        idQuestion = in.readLong();
         questionText = in.readString();
         answerTime = in.readInt();
         answersList = in.createTypedArrayList(Answer.CREATOR);
@@ -34,7 +34,7 @@ public class Question implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(idQuestion);
+        dest.writeLong(idQuestion);
         dest.writeString(questionText);
         dest.writeInt(answerTime);
         dest.writeTypedList(answersList);
@@ -57,11 +57,11 @@ public class Question implements Parcelable {
         }
     };
 
-    public int getIdQuestion() {
+    public long getIdQuestion() {
         return idQuestion;
     }
 
-    public void setIdQuestion(int idQuestion) {
+    public void setIdQuestion(long idQuestion) {
         this.idQuestion = idQuestion;
     }
 

@@ -165,8 +165,8 @@
     <string name="activate_switch">Switch to generate a new access code!</string>
     <string name="activequizzes">Active quizzes</string>
     <string name="edit_userinfo">User information</string>
-    <string name="edithintemail">E-mail</string>
-    <string name="edithintbirthdate">Birth date</string>
+    <string name="edithintemail">Email (Format: user@host.com)</string>
+    <string name="edithintbirthdate">Birth date (FORMAT: dd-MM-yyyy)</string>
     <string name="edit_gender">Gender</string>
     <string name="edit_male">Male</string>
     <string name="edit_female">Female</string>
@@ -176,7 +176,7 @@
     <string name="publicpaw">PAW</string>
     <string name="publicjava">Java</string>
     <string name="publicsql">SQL</string>
-    <string name="loginemail">E-mail:</string>
+    <string name="loginemail">Email (Format: user@host.com)</string>
     <string name="login_pass">Password:</string>
     <string name="login_btn">Login</string>
     <string name="login_register">Not registered? Click here to register!</string>
@@ -187,8 +187,8 @@
     <string name="question_answ">Answers</string>
     <string name="answ1">Answer 1</string>
     <string name="answ2">Answer 2</string>
-    <string name="answ3">Answer 3 (optional)</string>
-    <string name="answ4">Answer 4 (optional)</string>
+    <string name="answ3">Answer 3</string>
+    <string name="answ4">Answer 4</string>
     <string name="answ_save">Save</string>
     <string name="answ_cancelk">Cancel</string>
     <string name="quizz_visib">Visibility:</string>
@@ -226,7 +226,7 @@
     <string name="go_to_main_menu">Go to main menu</string>
     <string name="congratulations_user_you_finished_the_quiz">Congratulations user, you finished the quiz!</string>
     <string name="name">Name</string>
-    <string name="email">Email</string>
+    <string name="email">Email (Format: user@host.com)</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm password</string>
     <string name="user_type">User type:</string>
@@ -275,4 +275,23 @@
     <string name="import_event_activequizzes">quizzes were added to the database, by parsing JSON from an API</string>
     <string name="inc_intent_new_quizz">New quizz activated!</string>
     <string name="active_importjson">Parse quizzes from JSON API</string>
+    <string name="export_to_csv">Export to .csv</string>
+    <string name="export_to_txt">Export to .txt</string>
+    <string name="delete_this_user">Delete this user</string>
+    <string name="user_success_delete_editprofile">User successfully deleted!</string>
+    <string name="error_delete_editprofile">User didn\'t get deleted! An error occured!</string>
+    <string name="alert_cancel">Cancel</string>
+    <string name="alert_ok">OK</string>
+    <string name="alert_message">Are you sure you want to delete this profile?</string>
+    <string name="alert_delete_title">Delete user</string>
+    <string name="alert_canceled">Operation canceled!</string>
+    <string name="student_delete_dialog_message">Are you sure you want to delete this result?</string>
+    <string name="student_delete_dialog_title">Delete student result</string>
+    <string name="student_delete_dialog_yes">Yes</string>
+    <string name="student_delete_dialog_no">No</string>
+    <string name="error_different_new_Question">Answers have to be different! Please change them!</string>
+    <string name="csv_export_failed">The CSV export failed! Error!</string>
+    <string name="err_generate_CSV">Can\'t export a null list</string>
+    <string name="success_export_csv">Successfully exported to file studentResults.csv</string>
+    <string name="success_csv">Successfully exported to CSV! Location: data/data/ratingapp.ddey.com.dam_project/cache/studentResults.csv </string>
 </resources>

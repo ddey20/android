@@ -80,7 +80,7 @@ public class QuizAccessTypeActivity extends AppCompatActivity {
         Intent returnIntent = getIntent();
         if (returnIntent != null) {
             currentQuiz = returnIntent.getParcelableExtra(Constants.CHANGE_ACCESSTYPE_QUIZZ_KEY);
-            index = returnIntent.getIntExtra("index", -1);
+            index = returnIntent.getIntExtra(Constants.LV_INDEX_KEY, -1);
             if (currentQuiz != null) {
                 if (currentQuiz.getTitle() != null)
                     tvTitle.setText(currentQuiz.getTitle());
@@ -115,7 +115,7 @@ public class QuizAccessTypeActivity extends AppCompatActivity {
 
                     Intent returnIntent = getIntent();
                     returnIntent.putExtra(Constants.CHANGE_ACCESSTYPE_QUIZZ_KEY, currentQuiz);
-                    returnIntent.putExtra("index", index);
+                    returnIntent.putExtra(Constants.LV_INDEX_KEY, index);
                     setResult(RESULT_OK, returnIntent);
                     finish();
             }

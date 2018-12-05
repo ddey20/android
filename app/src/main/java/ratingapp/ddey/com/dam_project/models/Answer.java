@@ -4,13 +4,18 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Answer implements Parcelable {
-    private int idAnswer;
+    private long idAnswer;
     private boolean isCorrect;
     private String answer;
 
-    public Answer(int idAnswer, boolean isCorrect, String answer) {
+    public Answer(long idAnswer, boolean isCorrect, String answer) {
         this.idAnswer = idAnswer;
         this.isCorrect = isCorrect;
+        this.answer = answer;
+    }
+
+    public Answer(long idAnswer, String answer) {
+        this.idAnswer = idAnswer;
         this.answer = answer;
     }
 
@@ -23,10 +28,23 @@ public class Answer implements Parcelable {
         this.answer = answer;
     }
 
+
     protected Answer(Parcel in) {
-        idAnswer = in.readInt();
+        idAnswer = in.readLong();
         isCorrect = in.readByte() != 0;
         answer = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(idAnswer);
+        dest.writeByte((byte) (isCorrect ? 1 : 0));
+        dest.writeString(answer);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Answer> CREATOR = new Creator<Answer>() {
@@ -41,11 +59,11 @@ public class Answer implements Parcelable {
         }
     };
 
-    public int getIdAnswer() {
+    public long getIdAnswer() {
         return idAnswer;
     }
 
-    public void setIdAnswer(int idAnswer) {
+    public void setIdAnswer(long idAnswer) {
         this.idAnswer = idAnswer;
     }
 
@@ -65,15 +83,4 @@ public class Answer implements Parcelable {
         this.answer = answer;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(idAnswer);
-        dest.writeByte((byte) (isCorrect ? 1 : 0));
-        dest.writeString(answer);
-    }
 }
