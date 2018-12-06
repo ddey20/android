@@ -7,18 +7,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ratingapp.ddey.com.dam_project.R;
-import ratingapp.ddey.com.dam_project.models.Answer;
-import ratingapp.ddey.com.dam_project.models.Question;
 import ratingapp.ddey.com.dam_project.models.Quiz;
-import ratingapp.ddey.com.dam_project.network.HttpManager;
-import ratingapp.ddey.com.dam_project.utils.Constants;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
 import ratingapp.ddey.com.dam_project.utils.adapters.PublicQuizAdapter;
 
 public class PublicQuizzesActivity extends AppCompatActivity {
@@ -53,21 +48,21 @@ public class PublicQuizzesActivity extends AppCompatActivity {
             switch (quizzCategory) {
                 case "DAM":
                     this.setTitle("DAM");
-                    quizList = mDb.loadQuizzesByCategory("DAM");
+                    quizList = mDb.getQuizzesByCategory("DAM");
                     break;
 
                 case "PAW":
                     this.setTitle("PAW");
-                    quizList = mDb.loadQuizzesByCategory("PAW");
+                    quizList = mDb.getQuizzesByCategory("PAW");
                     break;
 
                 case "Java":
                     this.setTitle("Java");
-                    quizList = mDb.loadQuizzesByCategory("Java");
+                    quizList = mDb.getQuizzesByCategory("Java");
                     break;
                 case "SQL":
                     this.setTitle("SQL");
-                    quizList = mDb.loadQuizzesByCategory("SQL");
+                    quizList = mDb.getQuizzesByCategory("SQL");
                     break;
                 default:
                     break;

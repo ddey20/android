@@ -24,8 +24,8 @@ import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.models.Answer;
 import ratingapp.ddey.com.dam_project.models.Question;
 import ratingapp.ddey.com.dam_project.models.Quiz;
-import ratingapp.ddey.com.dam_project.utils.Constants;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
 import ratingapp.ddey.com.dam_project.utils.adapters.QuestionAdapter;
 
 public class NewQuizActivity extends AppCompatActivity {

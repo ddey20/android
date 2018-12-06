@@ -261,11 +261,11 @@
     <string name="nav_menu_createquizz">Create new quiz</string>
     <string name="nav_menu_activequizzes">Active quizzes</string>
     <string name="nav_menu_inactivequizzes">Inactive quizzes</string>
-    <string name="nav_menu_students_results">Student results</string>
+    <string name="nav_menu_students_results">REPORT: Students results (CSV) </string>
     <string name="nav_menu_studentssection">Students section</string>
     <string name="nav_menu_joinprivate">Join private quiz</string>
     <string name="nav_menu_joinpublic">Join public quiz</string>
-    <string name="nav_menu_history">Quiz history</string>
+    <string name="nav_menu_history">REPORT: Quiz history (TXT) </string>
     <string name="nav_menu_about">About</string>
     <string name="nav_menu_general">General</string>
     <string name="nav_menu_settings">Settings</string>
@@ -294,4 +294,12 @@
     <string name="err_generate_CSV">Can\'t export a null list</string>
     <string name="success_export_csv">Successfully exported to file studentResults.csv</string>
     <string name="success_csv">Successfully exported to CSV! Location: data/data/ratingapp.ddey.com.dam_project/cache/studentResults.csv </string>
+    <string name="cancel_update_result">Cancel</string>
+    <string name="save_update_result">Save</string>
+    <string name="insert_final_dialog_result">Please insert the final score for this student</string>
+    <string name="change_student_dialog">Change student score</string>
+    <string name="change_student_score_cancel_dialog">Canceled changing the student score!</string>
+    <string name="export_your_results_to_txt">Export your results to .TXT</string>
+    <string name="err_export_txt">Error : can\'t export null report</string>
+    <string name="success_txt_export">Successfully exported quiz history report to TXT file</string>
 </resources>

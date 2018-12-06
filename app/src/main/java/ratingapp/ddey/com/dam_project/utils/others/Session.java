@@ -1,4 +1,4 @@
-package ratingapp.ddey.com.dam_project.utils;
+package ratingapp.ddey.com.dam_project.utils.others;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,15 +17,9 @@ public class Session {
     private SharedPreferences.Editor editor;
     private Context context;
 
-    private static final String PREFER_NAME = "myRatingApp";
-    private static final String IS_USER_LOGIN = "IsUserLogged";
-    public static final String KEY_NAME = "name";
-    public static final String KEY_EMAIL = "email";
-    public static final String KEY_PASS = "pass";
-
     public Session (Context context) {
         this.context = context;
-        prefs = context.getSharedPreferences(PREFER_NAME, Context.MODE_PRIVATE);
+        prefs = context.getSharedPreferences(Constants.PREFER_NAME, Context.MODE_PRIVATE);
         editor = prefs.edit();
     }
 
@@ -38,10 +32,10 @@ public class Session {
     }
 
     public void createUserLoginSession(User user){
-        editor.putBoolean(IS_USER_LOGIN, true);
-        editor.putString(KEY_NAME, user.getName());
-        editor.putString(KEY_PASS, user.getPassword());
-        editor.putString(KEY_EMAIL, user.getEmail());
+        editor.putBoolean(Constants.IS_USER_LOGIN, true);
+        editor.putString(Constants.KEY_NAME, user.getName());
+        editor.putString(Constants.KEY_PASS, user.getPassword());
+        editor.putString(Constants.KEY_EMAIL, user.getEmail());
         editor.commit();
     }
 
@@ -50,8 +44,8 @@ public class Session {
 
         HashMap<String, String> user = new HashMap<String, String>();
 
-        user.put(KEY_EMAIL, prefs.getString(KEY_EMAIL, null));
-        user.put(KEY_PASS, prefs.getString(KEY_PASS, null));
+        user.put(Constants.KEY_EMAIL, prefs.getString(Constants.KEY_EMAIL, null));
+        user.put(Constants.KEY_PASS, prefs.getString(Constants.KEY_PASS, null));
 
         return user;
     }
@@ -68,6 +62,6 @@ public class Session {
 
 
     public boolean isUserLoggedIn(){
-        return prefs.getBoolean(IS_USER_LOGIN, false);
+        return prefs.getBoolean(Constants.IS_USER_LOGIN, false);
     }
 }

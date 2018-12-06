@@ -1,6 +1,7 @@
 package ratingapp.ddey.com.dam_project.activities.student;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,9 +23,9 @@ import ratingapp.ddey.com.dam_project.activities.general.MainActivity;
 import ratingapp.ddey.com.dam_project.models.Question;
 import ratingapp.ddey.com.dam_project.models.Quiz;
 import ratingapp.ddey.com.dam_project.models.Result;
-import ratingapp.ddey.com.dam_project.utils.Constants;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
-import ratingapp.ddey.com.dam_project.utils.Session;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.others.Session;
 import ratingapp.ddey.com.dam_project.utils.adapters.ResultQuestionAdapter;
 
 public class QuizResultActivity extends AppCompatActivity {
@@ -36,6 +41,7 @@ public class QuizResultActivity extends AppCompatActivity {
     private Quiz quiz;
     private boolean[] results;
     private int score;
+
 
 
     @Override

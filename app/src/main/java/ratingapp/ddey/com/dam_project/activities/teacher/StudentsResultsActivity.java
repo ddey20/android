@@ -1,12 +1,10 @@
 package ratingapp.ddey.com.dam_project.activities.teacher;
 
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -20,8 +18,8 @@ import java.util.List;
 
 import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.models.Result;
-import ratingapp.ddey.com.dam_project.utils.Constants;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
 import ratingapp.ddey.com.dam_project.utils.adapters.StudentResultsAdapter;
 
 public class StudentsResultsActivity extends AppCompatActivity {
@@ -66,7 +64,7 @@ public class StudentsResultsActivity extends AppCompatActivity {
         };
     }
 
-    // SALVEAZA FISIERUL .CSV IN data/data/ratingapp.ddey.com.dam_project/cache/studentResults.csv
+    // SALVEAZA FISIERUL .CSV  pe alt thread decat cel principal IN data/data/ratingapp.ddey.com.dam_project/cache/studentResults.csv
     private void writeResultsReportToCsv() {
         Runnable myRunnable = new Runnable() {
             @Override

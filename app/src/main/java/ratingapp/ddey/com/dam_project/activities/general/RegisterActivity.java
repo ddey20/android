@@ -15,7 +15,7 @@ import android.widget.Toast;
 import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.models.User;
 import ratingapp.ddey.com.dam_project.models.UserType;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
 
 public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText tieEmail, tiePassword, tieConfirmPassword, tieName;

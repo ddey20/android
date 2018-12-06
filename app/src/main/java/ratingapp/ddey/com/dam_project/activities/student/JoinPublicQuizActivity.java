@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import ratingapp.ddey.com.dam_project.R;
-import ratingapp.ddey.com.dam_project.utils.Constants;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
 
 public class JoinPublicQuizActivity extends AppCompatActivity implements CardView.OnClickListener {
     private Toolbar toolbar;

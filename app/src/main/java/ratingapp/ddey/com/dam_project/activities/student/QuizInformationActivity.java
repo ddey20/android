@@ -12,7 +12,7 @@ import android.widget.Toast;
 import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.models.Question;
 import ratingapp.ddey.com.dam_project.models.Quiz;
-import ratingapp.ddey.com.dam_project.utils.Constants;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
 
 public class QuizInformationActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tvTitle;

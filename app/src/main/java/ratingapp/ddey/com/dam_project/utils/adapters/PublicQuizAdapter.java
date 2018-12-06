@@ -17,7 +17,7 @@ import java.util.List;
 import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.activities.student.QuizInformationActivity;
 import ratingapp.ddey.com.dam_project.models.Quiz;
-import ratingapp.ddey.com.dam_project.utils.Constants;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
 
 public class PublicQuizAdapter extends ArrayAdapter<Quiz> {
     private Context mContext;

@@ -21,8 +21,8 @@ import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.activities.teacher.InactiveQuizzesActivity;
 import ratingapp.ddey.com.dam_project.activities.teacher.QuizAccessTypeActivity;
 import ratingapp.ddey.com.dam_project.models.Quiz;
-import ratingapp.ddey.com.dam_project.utils.Constants;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
 
 public class ActiveQuizAdapter extends ArrayAdapter<Quiz> {
     private Context mContext;

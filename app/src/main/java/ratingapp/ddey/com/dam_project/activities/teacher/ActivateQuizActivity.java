@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.models.Quiz;
-import ratingapp.ddey.com.dam_project.utils.Constants;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
 
 public class ActivateQuizActivity extends AppCompatActivity {
     private TextView tvTitle;

@@ -10,15 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import ratingapp.ddey.com.dam_project.R;
-import ratingapp.ddey.com.dam_project.models.Quiz;
 import ratingapp.ddey.com.dam_project.models.Result;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
 
 public class StudentResultsAdapter extends ArrayAdapter<Result> {
     private Context mContext;
@@ -84,8 +84,8 @@ public class StudentResultsAdapter extends ArrayAdapter<Result> {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 mList.remove(position);
-                                notifyDataSetChanged();
                                 mDb.deleteResult(r);
+                                notifyDataSetChanged();
                             }
                         })
                         .setNegativeButton(mContext.getString(R.string.student_delete_dialog_no), new DialogInterface.OnClickListener() {
@@ -97,6 +97,40 @@ public class StudentResultsAdapter extends ArrayAdapter<Result> {
 
                 dialog.create().show();
                 return true;
+            }
+        });
+
+        //MODIFY SCORE
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder insertDialog = new AlertDialog.Builder(mActivity);
+
+                final EditText input = new EditText(mActivity);
+                insertDialog.setView(input);
+
+                insertDialog.setTitle(mContext.getString(R.string.change_student_dialog))
+                        .setMessage(mContext.getString(R.string.insert_final_dialog_result))
+                        .setPositiveButton(mContext.getString(R.string.save_update_result), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (!input.getText().toString().trim().isEmpty() && input.getText() != null) {
+                                    mList.get(position).setScore(Integer.valueOf(input.getText().toString()));
+                                    mDb.updateResultScore(mList.get(position), Integer.valueOf(input.getText().toString()));
+                                    notifyDataSetChanged();
+                                }
+                            }
+                        })
+                        .setNegativeButton(mContext.getString(R.string.cancel_update_result), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //dialog.dismiss();
+                                Toast.makeText(mActivity, mContext.getString(R.string.change_student_score_cancel_dialog), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                insertDialog.create();
+                insertDialog.show();
             }
         });
         return view;

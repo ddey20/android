@@ -21,9 +21,9 @@ import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.models.Quiz;
 import ratingapp.ddey.com.dam_project.network.HttpManager;
 import ratingapp.ddey.com.dam_project.network.QuizParser;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
 import ratingapp.ddey.com.dam_project.utils.adapters.ActiveQuizAdapter;
-import ratingapp.ddey.com.dam_project.utils.Constants;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
 
 public class ActiveQuizzesActivity extends AppCompatActivity {
     private List<Quiz> activeQuizList;

@@ -10,8 +10,7 @@ import android.view.View;
 import android.widget.Switch;
 
 import ratingapp.ddey.com.dam_project.R;
-import ratingapp.ddey.com.dam_project.utils.Constants;
-import ratingapp.ddey.com.dam_project.utils.Session;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
 
 
 public class SettingsActivity extends AppCompatActivity {

@@ -3,8 +3,8 @@ package ratingapp.ddey.com.dam_project.activities.general;
 import android.os.Bundle;
 
 import ratingapp.ddey.com.dam_project.R;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
-import ratingapp.ddey.com.dam_project.utils.Session;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.others.Session;
 
 import android.widget.TextView;
 

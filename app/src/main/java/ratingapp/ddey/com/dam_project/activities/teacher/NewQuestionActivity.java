@@ -18,8 +18,7 @@ import java.util.List;
 import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.models.Answer;
 import ratingapp.ddey.com.dam_project.models.Question;
-import ratingapp.ddey.com.dam_project.utils.Constants;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
 
 public class NewQuestionActivity extends AppCompatActivity {
     private Spinner spnDuration;
@@ -143,7 +142,7 @@ public class NewQuestionActivity extends AppCompatActivity {
         Adapter adapter = spn.getAdapter();
 
         for (int i = 0; i < spn.getCount(); i++) {
-            if (adapter.getItem(i).toString().equals(selected)) {
+            if (adapter.getItem(i).toString().substring(0, 3).trim().equals(selected)) {
                 spn.setSelection(i);
             }
         }

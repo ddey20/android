@@ -24,9 +24,9 @@ import ratingapp.ddey.com.dam_project.activities.teacher.ActiveQuizzesActivity;
 import ratingapp.ddey.com.dam_project.activities.teacher.InactiveQuizzesActivity;
 import ratingapp.ddey.com.dam_project.activities.teacher.StudentsResultsActivity;
 import ratingapp.ddey.com.dam_project.models.Quiz;
-import ratingapp.ddey.com.dam_project.utils.Constants;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
-import ratingapp.ddey.com.dam_project.utils.Session;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.others.Session;
 
 public class BaseDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

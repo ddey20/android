@@ -18,8 +18,8 @@ import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.activities.teacher.NewQuestionActivity;
 import ratingapp.ddey.com.dam_project.models.Answer;
 import ratingapp.ddey.com.dam_project.models.Question;
-import ratingapp.ddey.com.dam_project.utils.Constants;
-import ratingapp.ddey.com.dam_project.utils.DbHelper;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
+import ratingapp.ddey.com.dam_project.utils.database.DbHelper;
 
 public class QuestionAdapter extends ArrayAdapter<Question> {
     private Context mContext;

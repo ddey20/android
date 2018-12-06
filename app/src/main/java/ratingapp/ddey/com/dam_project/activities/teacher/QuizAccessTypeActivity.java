@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import ratingapp.ddey.com.dam_project.R;
 import ratingapp.ddey.com.dam_project.models.Quiz;
-import ratingapp.ddey.com.dam_project.utils.Constants;
+import ratingapp.ddey.com.dam_project.utils.others.Constants;
 
 public class QuizAccessTypeActivity extends AppCompatActivity {
     private TextView tvTitle;
