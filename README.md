@@ -6,13 +6,17 @@ Android Studio Quiz App
 FAZA 2
 ======
 
-###1. Implementarea unui adaptor personalizat (cel puțin trei controale vizuale); (0.5 p.)
+### 1. Implementarea unui adaptor personalizat (cel puțin trei controale vizuale); (0.5 p.)
+
 	* 7 custom adapters
-###2. Implementarea și utilizarea unor operații asincrone; (1 p.)
+### 2. Implementarea și utilizarea unor operații asincrone; (1 p.)
+
 	* Clasa HttpManager folosita pentru parsare JSON
-###3. Utilizarea claselor pentru accesul la resurse externe (din rețea); (0.5 p.)
+### 3. Utilizarea claselor pentru accesul la resurse externe (din rețea); (0.5 p.)
+
 	* Clasa HttpManager folosita pentru parsare JSON folosind permission INTERNET
-###4. Prelucrarea de fișiere JSON sau XML. Fișierele trebuie să conțină cel puțin 3 noduri dispuse pe niveluri diferite. Fiecare nod trebuie sa aibă cel puțin 3 atribute; (0.5 p.)
+### 4. Prelucrarea de fișiere JSON sau XML. Fișierele trebuie să conțină cel puțin 3 noduri dispuse pe niveluri diferite. Fiecare nod trebuie sa aibă cel puțin 3 atribute; (0.5 p.)
+
 	* QuizParser (in ActiveQuizzesActivitiy, pe butonul de jos se realizeaza parsarea din JSON API in baza de date, de unde mAdapter este refreshed pentru a putea vedea informatia parsata in listview.
 	
 FAZA 3
