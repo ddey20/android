@@ -1,16 +1,16 @@
-Proiect DAM
-===========
-
+﻿# Proiect DAM
 Android Studio - Quiz App
 
-FAZA 3
-======
+#FAZA 3
 
 ### 1. Utilizarea fișierelor de preferințe; (0.5 p.)
-	- SharedPreferences folosit in clasa Session apelata dupa aceea in multe alte activitati, si separat in activitatea Settings    
-### 2. Crearea unei baze de date SQLite cu minim două tabele cu legături intre ele (o tabelă/membru). Implementarea operațiilor de tip DDL; (0.5 p.)
-    - Baza de date a fost creata inca din prima faza, iar in aceasta faza am asigurat implementarea tuturor operatiilor CRUD pentru fiecare dintre cele 5 tabele SQLite.
-###  3. Implementarea operațiilor de tip DML. Pentru fiecare tabela sa se implementeze cel puțin o metoda de insert, update, delete si select. Toate metodele trebuie apelate; (0.5 p.)
+	- SharedPreferences folosit in clasa Session apelata dupa aceea in multe alte activitati, si separat in activitatea Settings	
+	
+###  2. Crearea unei baze de date SQLite cu minim două tabele cu legături intre ele (o tabelă/membru). Implementarea operațiilor de tip DDL; (0.5 p.)
+	- Baza de date a fost creata inca din prima faza, iar in aceasta faza am asigurat implementarea tuturor operatiilor CRUD pentru fiecare dintre cele 5 tabele SQLite.
+	
+###  3. Implementarea operațiilor de tip DML. Pentru fiecare tabela sa se implementeze cel puțin o
+metoda de insert, update, delete si select. Toate metodele trebuie apelate; (0.5 p.)
 	- DbHelper contine tot ceea ce este legat de baza de date ( toate operatiile CRUD pentru fiecare tabela -> minim 25 de operatii care sunt apelate).
 	- Alte detalii:
 		- update pe quizz, question, answer in Inactive Quizzes (quizul trebuie sa fie inactiv pt a putea fi modificat)
