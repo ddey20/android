@@ -16,9 +16,7 @@ FAZA 3
 		- update pe quizz, question, answer in Inactive Quizzes (quizul trebuie sa fie inactiv pt a putea fi modificat)
 		- delete pe results in StudentsResults
 		- delete pe user in EditProfile
-###  4. Definirea a minim două rapoarte pe datele stocate în baza de date. Prin raport, se înțelege afișarea
-pe ecranul dispozitivului mobil a informațiilor preluate din baza de date. Rapoartele sunt diferite
-ca si structura. (0.5 p.). Componentele vizuale în care se afișează cele doua rapoarte trebuie sa fie
+###  4. Definirea a minim două rapoarte pe datele stocate în baza de date. Prin raport, se înțelege afișarea pe ecranul dispozitivului mobil a informațiilor preluate din baza de date. Rapoartele sunt diferite ca si structura. (0.5 p.). Componentele vizuale în care se afișează cele doua rapoarte trebuie sa fie
 diferite de cele prezentate la faza 1 și 2.
 	- Am modificat cateva componente vizuale si am definit cele 2 rapoarte pe datele stocate in baza de date (in 2 ListViewuri cu adaptoare diferite) implementate in StudentsResultsActivity si QuizHistoryActivity de unde vom exporta ulterior fisierele CSV si TXT.
 ###  5. Salvarea rapoartelor în fișiere normale. (txt, csv etc.) (0.5 p.)
