@@ -1,7 +1,8 @@
-Proiect DAM
-===========
+DAM Project
+============
+# Android Studio // Quiz App
 
-Android Studio Quiz App
+
 
 FAZA 2
 ======
