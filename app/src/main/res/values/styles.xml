@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">#212121</item>
+        <item name="android:textViewStyle">@style/light_textview</item>
+        <item name="android:radioButtonStyle">@style/light_rbtext</item>
+        <item name="android:spinnerItemStyle">@style/light_spinner</item>
+        <item name="editTextStyle">@style/MyCustomEditTextStyle</item>
+    </style>
+
+    <style name="light_textview" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="light_rbtext" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="light_spinner" parent="android:Widget.Spinner">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:color">@color/colorAccent</item>
+    </style>
+    <style name="MyCustomEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="fontFamily">sans-serif-light</item>
+        <item name="android:imeOptions">actionDone</item>
+    </style>
+
+</resources>

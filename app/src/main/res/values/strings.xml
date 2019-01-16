@@ -1,0 +1,310 @@
+<resources>
+    <string name="app_name">Quizzes App</string>
+
+    <string name="signup_error_name">Introduce name</string>
+    <string name="signup_error_password">Introduce password with minimum 6 letters</string>
+    <string name="signup_error_password_match">Make sure the passwords match!</string>
+    <string name="signup_error_email">Email is not in correct format!</string>
+
+    <string name="profile_activity_email_error">Email is not in correct format!</string>
+    <string name="date_format_error">Date format isn\'t correct. Use (dd-MM-yyyy)!</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string-array name="newquizz_spn_visibility">
+        <item>Public</item>
+        <item>Private</item>
+    </string-array>
+
+    <string-array name="newquestion_spn_duration">
+        <item>20 seconds</item>
+        <item>30 seconds</item>
+        <item>60 seconds</item>
+        <item>90 seconds</item>
+        <item>120 seconds</item>
+    </string-array>
+
+    <string-array name="spn_category">
+        <item>DAM</item>
+        <item>PAW</item>
+        <item>Java</item>
+        <item>SQL</item>
+    </string-array>
+
+
+    <!-- STRINGURI DE LA NASTASE + SEBI -->
+
+    <string name="start_quizz">Start Quizz</string>
+    <string name="private_quizz_code">Private Quizz Code</string>
+    <string name="quizz_code_text">Introduce your code to start the quiz</string>
+    <string name="categories_join">Categories</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="settings_tv">Settings</string>
+    <string name="option1_settings">Option 1</string>
+    <string name="option2_settings">Option 2</string>
+    <string name="save_settings_btn">Save Settings</string>
+
+    <string name="histroy_header_quizz_name">Quizz Name</string>
+    <string name="history_header_result">Result</string>
+    <string name="abstract_settings">Settings</string>
+    <string name="abstract_logout">Successfully logged out!</string>
+    <string name="abstract_optionforstudentsonly">This option is available only for the students!</string>
+    <string name="R_string_abstract_optionforteachersonly">This option is available only for teachers!</string>
+    <string name="login_wrongemailorpass">Wrong email or password</string>
+    <string name="login_emailerror">Insert the e-mail correctly</string>
+    <string name="login_pass_error">Insert the password correctly</string>
+    <string name="register_succes">Succesfully registered!</string>
+    <string name="prefs_settings">PREFS</string>
+    <string name="quizz_activity_correct_answer">Correct answer! Plus 10 points in your score!</string>
+    <string name="quizz_outoftime">Out of time...</string>
+    <string name="quizz_wrong">Wrong answer...</string>
+    <string name="quizz_pickanswer">Pick an answer to proceed!</string>
+    <string name="quizzinfo_checkyes">Check \'YES\' if you want to start the quiz!</string>
+    <string name="activatequizz_checkyes">Check \'YES\' if you want to activate the quiz</string>
+    <string name="activequizzes_nochangesmade">No changes made to the selected list item!</string>
+    <string name="inactive_nochanges">No changes made to the selected list item!</string>
+    <string name="newquestion_insertquestion_error">Inserting a question is mandatory!</string>
+    <string name="newquestion_insertanswer_error">Inserting an answer here is mandatory</string>
+    <string name="newquestion_pick_error">You have to pick a correct answer for this question before proceeding!</string>
+    <string name="newquestion_unfilled_error">You can\'t have an unfilled answer that is correct! Please fill it or uncheck the box!</string>
+    <string name="newquizz_created">Quizz created! You can find it in the inactive quizzes list to activate it successfully</string>
+    <string name="newquizz_modified">Quizz modified! You can find it in the inactive quizzes list to activate it successfully</string>
+    <string name="newquizz_error">Some error occured! You can\'t save the quiz!</string>
+    <string name="newquizz_add_success">Question added successfully</string>
+    <string name="newquizz_add_failed">Question wasn\'t added!</string>
+    <string name="newquizz_title_error">Inserting a title is mandatory!</string>
+    <string name="newquizz_desc_error">Inserting a description here is mandatory</string>
+    <string name="newquizz_questionnr_error">You can\'t create a quiz with less than one question!</string>
+    <string name="adapter_areyousure">Are you sure you want to delete this quiz?</string>
+    <string name="adapter_areyousure_deactivate">Are you sure you want to deactivate this quiz?</string>
+    <string name="questionadapter_nranswer">Number of answers =</string>
+    <string name="questionadapter_nrcorrect">Number of correct answers =</string>
+    <string name="about_team">Team: Neagu Andrei-Cosmin \n Neagu-Cernat Andreea-Oana \n Nastase Ionut \n Nicu Sebi \n Nicolescu Roxana</string>
+    <string name="about_phase">Version: Phase 4</string>
+    <string name="about_title">Project DAM - Quiz App</string>
+    <string name="about_year">Year: 2018-2019</string>
+    <string name="activate_tv1">This is the code of the quiz for private access!</string>
+    <string name="activate_tv2">Cancel</string>
+    <string name="activate_btn">OK</string>
+    <string name="activate_access_code">123456</string>
+    <string name="activate_areusure_tv">Are you sure you want to activate this quiz?</string>
+    <string name="activate_tv_title">Quizz title</string>
+    <string name="activate_rb_yes">Yes</string>
+    <string name="activate_rb_no">No</string>
+    <string name="activate_switch">Switch to generate a new access code!</string>
+    <string name="activequizzes">Active quizzes</string>
+    <string name="edit_userinfo">User information</string>
+    <string name="edithintemail">Email (Format: user@host.com)</string>
+    <string name="edithintbirthdate">Birth date (FORMAT: dd-MM-yyyy)</string>
+    <string name="edit_gender">Gender</string>
+    <string name="edit_male">Male</string>
+    <string name="edit_female">Female</string>
+    <string name="edit_save">Save</string>
+    <string name="c">Inactive quizzes</string>
+    <string name="publicdam">DAM</string>
+    <string name="publicpaw">PAW</string>
+    <string name="publicjava">Java</string>
+    <string name="publicsql">SQL</string>
+    <string name="loginemail">Email (Format: user@host.com)</string>
+    <string name="login_pass">Password:</string>
+    <string name="login_btn">Login</string>
+    <string name="login_register">Not registered? Click here to register!</string>
+    <string name="login_hello">Hello user</string>
+    <string name="question_related">Question related</string>
+    <string name="question_duration">Duration:</string>
+    <string name="hint1">Question</string>
+    <string name="question_answ">Answers</string>
+    <string name="answ1">Answer 1</string>
+    <string name="answ2">Answer 2</string>
+    <string name="answ3">Answer 3</string>
+    <string name="answ4">Answer 4</string>
+    <string name="answ_save">Save</string>
+    <string name="answ_cancelk">Cancel</string>
+    <string name="quizz_visib">Visibility:</string>
+    <string name="quizz_desc">Description:</string>
+    <string name="quizz_title">Title:</string>
+    <string name="quizz_category">Category:</string>
+    <string name="quizz_save">Save quiz</string>
+    <string name="quizz_addnew">Add new question</string>
+    <string name="public_join">Join a quiz</string>
+    <string name="quizz_question">Question</string>
+    <string name="answer_1">Answer 1</string>
+    <string name="answer_2">Answer 2</string>
+    <string name="answer_3">Answer 3</string>
+    <string name="answer_4">Answer 4</string>
+    <string name="next">Next</string>
+    <string name="this_is_the_code_of_the_quiz_for_private_access">This is the code of the quiz for private access!</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="quizz_title_tv">Quizz title</string>
+    <string name="category">Category:</string>
+    <string name="please_use_the_switch_to_choose_access_type">Please use the switch to choose access type</string>
+    <string name="public2">Public</string>
+    <string name="nr">Nr.</string>
+    <string name="score">Score</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="number_of_questions">Number of questions</string>
+    <string name="multiple_answers_can_be_correct">Multiple answers can be correct</string>
+    <string name="total_maximum_time">Total maximum time</string>
+    <string name="are_you_ready_to_start">Are you ready to start?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="start">Start</string>
+    <string name="back">Back</string>
+    <string name="go_to_main_menu">Go to main menu</string>
+    <string name="congratulations_user_you_finished_the_quiz">Congratulations user, you finished the quiz!</string>
+    <string name="name">Name</string>
+    <string name="email">Email (Format: user@host.com)</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="user_type">User type:</string>
+    <string name="teacher">Teacher</string>
+    <string name="student">Student</string>
+    <string name="register">Register</string>
+    <string name="return_to_login">Return to login</string>
+    <string name="view_the_results_of_the_students">View the results of the students</string>
+    <string name="quizz_title_lv">Quizz title</string>
+    <string name="description_lv">Description</string>
+    <string name="visibility_lv">Visibility:</string>
+    <string name="category_lv">Category:</string>
+    <string name="access_code_lv">Access code:</string>
+    <string name="configure_lv">Configure</string>
+    <string name="deactivate_lv">Deactivate</string>
+    <string name="activate_lv">Activate</string>
+    <string name="quizz_description_lv">Quizz description</string>
+    <string name="join_quiz_lv">Join quiz</string>
+    <string name="question_lv">Question</string>
+    <string name="number_of_answers">Number of answers</string>
+    <string name="number_of_correct_answers">Number of correct answers</string>
+    <string name="nr_lv">Nr.</string>
+    <string name="question_title_if_wrong_correct_by_colour">Question title + if wrong/correct (by colour)</string>
+    <string name="quizz_title_lv2">Quizz title</string>
+    <string name="student_name">Student name</string>
+    <string name="score_lv2">Score</string>
+    <string name="date">Date</string>
+    <string name="type_of_account">Type of account</string>
+    <string name="testusername">testusername</string>
+    <string name="email_nav">test@test.com</string>
+    <string name="nav_menu_teachersection">Teachers section</string>
+    <string name="nav_menu_createquizz">Create new quiz</string>
+    <string name="nav_menu_activequizzes">Active quizzes</string>
+    <string name="nav_menu_inactivequizzes">Inactive quizzes</string>
+    <string name="nav_menu_students_results">REPORT: Students results (CSV) </string>
+    <string name="nav_menu_studentssection">Students section</string>
+    <string name="nav_menu_joinprivate">Join private quiz</string>
+    <string name="nav_menu_joinpublic">Join public quiz</string>
+    <string name="nav_menu_history">REPORT: Quiz history (TXT) </string>
+    <string name="nav_menu_about">About</string>
+    <string name="nav_menu_general">General</string>
+    <string name="nav_menu_settings">Settings</string>
+    <string name="nav_menu_profile">Edit profile</string>
+    <string name="nav_menu_logout">Log out</string>
+    <string name="parsing_error_active">The parsing wasn\'t successful!</string>
+    <string name="import_event_activequizzes">quizzes were added to the database, by parsing JSON from an API</string>
+    <string name="inc_intent_new_quizz">New quizz activated!</string>
+    <string name="active_importjson">Parse quizzes from JSON API</string>
+    <string name="export_to_csv">Export to .csv</string>
+    <string name="export_to_txt">Export to .txt</string>
+    <string name="delete_this_user">Delete this user</string>
+    <string name="user_success_delete_editprofile">User successfully deleted!</string>
+    <string name="error_delete_editprofile">User didn\'t get deleted! An error occured!</string>
+    <string name="alert_cancel">Cancel</string>
+    <string name="alert_ok">OK</string>
+    <string name="alert_message">Are you sure you want to delete this profile?</string>
+    <string name="alert_delete_title">Delete user</string>
+    <string name="alert_canceled">Operation canceled!</string>
+    <string name="student_delete_dialog_message">Are you sure you want to delete this result?</string>
+    <string name="student_delete_dialog_title">Delete student result</string>
+    <string name="student_delete_dialog_yes">Yes</string>
+    <string name="student_delete_dialog_no">No</string>
+    <string name="error_different_new_Question">Answers have to be different! Please change them!</string>
+    <string name="csv_export_failed">The CSV export failed! Error!</string>
+    <string name="err_generate_CSV">Can\'t export a null list</string>
+    <string name="success_export_csv">Successfully exported to file studentResults.csv</string>
+    <string name="success_csv">Successfully exported to CSV! Location(Internal Storage): android/data/ratingapp.ddey.com.dam_project/files/write/studentResults.csv </string>
+    <string name="cancel_update_result">Cancel</string>
+    <string name="save_update_result">Save</string>
+    <string name="insert_final_dialog_result">Please insert the final score for this student</string>
+    <string name="change_student_dialog">Change student score</string>
+    <string name="change_student_score_cancel_dialog">Canceled changing the student score!</string>
+    <string name="export_your_results_to_txt">Export your results to .TXT</string>
+    <string name="err_export_txt">Error : can\'t export null report</string>
+    <string name="success_txt_export">Successfully exported quiz history report to TXT file</string>
+
+    <string name="google_maps_API_key">AIzaSyB1IkhBtQhXItMjslFNp3Poy3_dPNdAFuE</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="quizzes_category_charts">Charts</string>
+    <string name="give_us_a_review">GIVE US A RATING</string>
+</resources>

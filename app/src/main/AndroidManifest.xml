@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ratingapp.ddey.com.dam_project">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_API_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".activities.general.LoginActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.general.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.general.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.general.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.general.EditProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.general.BaseDrawerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.student.JoinPrivateQuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.student.JoinPublicQuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.teacher.NewQuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.teacher.NewQuestionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.teacher.InactiveQuizzesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.teacher.ActiveQuizzesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.teacher.ActivateQuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.teacher.QuizAccessTypeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.teacher.StudentsResultsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.student.QuizInformationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.student.QuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.student.QuizResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.student.QuizHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.general.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.student.PublicQuizzesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.general.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".activities.general.ChartsActivity" />
+        <activity android:name=".activities.general.GiveReview"></activity>
+    </application>
+
+</manifest>
